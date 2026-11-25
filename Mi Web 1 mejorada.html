@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loterias web</title>
+
+  <style>
+    :root {
+      --ink: #49313d;
+      --accent: #d96b91;
+      --accent-dark: #b84770;
+      --line: #f1d5e0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 38px 18px 64px;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at 10% 8%, #ffe0eb 0, transparent 30%),
+        radial-gradient(circle at 90% 25%, #f8dff0 0, transparent 28%),
+        linear-gradient(135deg, #fff6f8, #fdebf2 55%, #fff1ed);
+    }
+
+    body > * {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--accent-dark);
+      line-height: 1.25;
+      margin-top: 24px;
+      margin-bottom: 13px;
+    }
+
+    h1 {
+      padding: 32px 30px;
+      border-radius: 26px;
+      color: white;
+      text-align: center;
+      background: linear-gradient(125deg, #e889aa, #c65c87 58%, #ad6c9b);
+      box-shadow: 0 14px 32px rgba(184, 71, 112, .22);
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+    }
+
+    h2 {
+      padding: 0 0 10px 14px;
+      border-bottom: 2px solid #edc4d4;
+      border-left: 5px solid #df83a4;
+      margin-top: 42px;
+    }
+
+    h3, h4, h5, h6 {
+      color: #c66b8b;
+    }
+
+    p, blockquote, ol, ul, form, table {
+      background: rgba(255, 253, 253, .94);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 19px 23px;
+      box-shadow: 0 7px 22px rgba(143, 75, 102, .07);
+    }
+
+    blockquote {
+      color: #a7436b;
+      border-left: 6px solid #d96b91;
+      font-size: 1.18rem;
+      font-style: italic;
+      background: #fff7fa;
+    }
+
+    mark {
+      background: #ffe3a8;
+      color: #744b31;
+      border-radius: 5px;
+      padding: 2px 5px;
+    }
+
+    hr {
+      max-width: 900px;
+      border: 0;
+      border-top: 1px solid #e9bfd0;
+      margin: 30px auto;
+    }
+
+    a {
+      color: #b84770;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #8f3157;
+      text-decoration: underline;
+    }
+
+    .dog-wrap {
+      text-align: center;
+      padding: 20px;
+      background: #fffdfd;
+      border: 2px solid #f0c5d6;
+      border-radius: 25px;
+      box-shadow: 0 12px 30px rgba(143, 75, 102, .12);
+    }
+
+    .dog-image {
+      display: block;
+      width: min(100%, 650px);
+      height: auto;
+      margin: 0 auto;
+      border: 7px solid white;
+      border-radius: 22px;
+      box-shadow: 0 9px 24px rgba(91, 44, 64, .18);
+    }
+
+    form {
+      padding: 26px;
+    }
+
+    form > div {
+      margin: 13px 0;
+    }
+
+    label {
+      display: inline-block;
+      margin: 5px 8px 5px 0;
+      font-weight: 650;
+      color: #74475a;
+    }
+
+    input:not([type="radio"]):not([type="checkbox"]),
+    select, textarea {
+      max-width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #e7bdce;
+      border-radius: 11px;
+      background: #fff8fb;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(217, 107, 145, .17);
+      border-color: var(--accent);
+    }
+
+    textarea {
+      width: min(100%, 520px);
+      min-height: 100px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      accent-color: #d96b91;
+    }
+
+    input[type="submit"] {
+      margin-top: 15px;
+      padding: 13px 23px;
+      border: 0;
+      border-radius: 12px;
+      color: white;
+      background: linear-gradient(120deg, #e889aa, #c65c87);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(184, 71, 112, .2);
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(120deg, #d96b91, #ad426e);
+    }
+
+    ol, ul {
+      padding-left: 43px;
+    }
+
+    li {
+      padding: 4px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      padding: 0;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 17px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: white;
+      background: linear-gradient(120deg, #e889aa, #c65c87);
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fff2f6;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 12px 42px;
+      }
+
+      p, blockquote, ol, ul {
+        padding: 15px;
+      }
+
+      form {
+        padding: 17px;
+      }
+
+      table {
+        font-size: .9rem;
+      }
+
+      th, td {
+        padding: 10px 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Estos son encabezados -->
+  <h1>La suerte está en tus manos</h1>
+  <h2>La suerte está en tus manos</h2>
+  <h3>La suerte está en tus manos</h3>
+  <h4>La suerte está en tus manos</h4>
+  <h5>La suerte está en tus manos</h5>
+  <h6>La suerte está en tus manos</h6>
+
+  <p><b>Esto es un párrafo</b></p>
+
+  <p>
+    <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad <mark>minim veniam</mark>, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit
+    anim id est laborum.</i>
+  </p>
+
+  <p>Estamos aprendiendo
+    <abbr title="Esto es HTML">HTML</abbr>
+  </p>
+
+  <hr>
+
+  <blockquote>"Tempus fugit, irreparabile fugit"</blockquote>
+
+  <hr>
+
+  <br><br>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor <br>
+    incididunt ut labore et dolore magna aliqua.
+  </p>
+
+  <hr>
+
+  <!-- Estos son atributos -->
+  <p title="Esto es un párrafo">Párrafo con atributo</p>
+
+  <!-- Esto es una imagen -->
+  <div class="dog-wrap">
+    <a href="https://www.netflix.com/es" target="_blank">
+      <img class="dog-image"
+           src="perro molón.jpg"
+           alt="Perro molón"
+           width="800">
+    </a>
+  </div>
+
+  <hr>
+
+  <!-- Esto es un enlace -->
+  <p>
+    <a href="https://www.netflix.com/es" target="_blank">
+      Ir a Netflix
+    </a>
+  </p>
+
+  <p>
+    <a href="fotoweb.jpg">
+      Clic aquí para ver el perro molón
+    </a>
+  </p>
+
+  <hr>
+
+  <!-- Estos son formularios -->
+  <h2>FORMULARIOS</h2>
+
+  <form action="">
+
+    <div>
+      <label>Nombre</label>
+      <input type="text" placeholder="Introduce tu nombre">
+    </div>
+
+    <div>
+      <label>Apellido</label>
+      <input type="text" placeholder="Introduce tu apellido">
+    </div>
+
+    <div>
+      <label>Correo</label>
+      <input type="mail" placeholder="Introduce tu correo">
+    </div>
+
+    <div>
+      <textarea name="mensaje">Mensaje</textarea>
+    </div>
+
+    <div>
+      <label>Genero</label>
+      <select name="genero">
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="No binario">No binario</option>
+      </select>
+    </div>
+
+    <div>
+      <input type="radio" name="Genero">Masculino <br>
+      <input type="radio" name="Genero">Femenino <br>
+      <input type="radio" name="Genero">No binario
+    </div>
+
+    <div>
+      <label>Edad</label>
+      <input type="number">
+    </div>
+
+    <div>
+      <label>Cumpleaños</label>
+      <input type="date">
+    </div>
+
+    <div>
+      <label>Bici</label>
+      <input type="checkbox">
+    </div>
+
+    <div>
+      <label>Coche</label>
+      <input type="checkbox">
+    </div>
+
+    <input type="submit" value="Enviar formulario">
+
+  </form>
+
+  <br><br>
+
+  <!-- Listas -->
+  <ol>
+    <li>Coche</li>
+    <li>Moto</li>
+    <li>Avión</li>
+    <li>Barco</li>
+  </ol>
+
+  <ul>
+    <li>Azul
+      <ul>
+        <li>Cian</li>
+        <li>Azul marino</li>
+        <li>Aguamarina</li>
+      </ul>
+    </li>
+    <li>Rojo</li>
+    <li>Verde</li>
+    <li>Amarillo</li>
+  </ul>
+
+  <br><br>
+
+  <!-- Tablas -->
+  <h2>Tablas</h2>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Edad</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Mario</td>
+        <td>777 777 777</td>
+        <td>17</td>
+      </tr>
+
+      <tr>
+        <td>Rosario</td>
+        <td>666 666 666</td>
+        <td>18</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
+

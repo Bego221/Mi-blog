@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5effa;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #4b176e, #8e44ad);
+            color: white;
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .post {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 6px solid #8e44ad;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.13);
+        }
+
+        .post h3 {
+            color: #64258a;
+            font-size: 23px;
+            margin-top: 0;
+        }
+
+        .post small {
+            color: #888;
+        }
+
+        .post p {
+            margin: 20px 0;
+            text-align: justify;
+        }
+
+        .post a {
+            display: inline-block;
+            background-color: #8e44ad;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .post a:hover {
+            background-color: #572477;
+        }
+
+        footer {
+            background-color: #30213b;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .post {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mi blog</h1>
+    </header>
+
+    <section>
+        <article class="post">
+            <h3>Mi primera página web</h3>
+            <small>Escrito por Begoña Castaño Espejo</small>
+
+            <p>Durante el curso hemos aprendido a crear una página web utilizando HTML. Hemos conocido diferentes etiquetas para escribir y organizar textos, poner palabras en negrita, cursiva y subrayadas, cambiar el tamaño y el color de las letras y crear títulos y subtítulos. También hemos aprendido a insertar imágenes, añadir enlaces a otras páginas web, crear listas ordenadas y separar los textos en párrafos. Además, hemos aprendido a alinear textos, utilizar saltos de línea y organizar los diferentes elementos para que la página quede más ordenada y bonita. Gracias a los vídeos del curso, hemos aprendido cómo funcionan las etiquetas HTML, cómo se escriben y cómo se utilizan para diseñar nuestra propia página web desde cero.</p>
+
+            <a href="Mi Web 1 mejorada.html">Leer más</a>
+        </article>
+    </section>
+
+    <section>
+        <article class="post">
+            <h3>Historia de IES Don Diego de Bernuy</h3>
+            <small>Escrito por Begoña Castaño Espejo</small>
+
+            <p>Don Diego de Bernuy fue una figura muy importante en la historia de Benamejí, ya que fue quien fundó y organizó nuestro pueblo en el siglo XVI. Su historia sigue presente hoy en día, incluso en nuestro instituto, que lleva su nombre: IES Don Diego de Bernuy.</p>
+
+            <a href="Web don diego de bernuy 2 mejorada.html">Leer más</a>
+        </article>
+    </section>
+
+    <footer>
+        <p>Copyright &copy;2026 My Blog</p>
+    </footer>
+
+</body>
+</html>
